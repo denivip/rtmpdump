@@ -480,7 +480,10 @@ RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
 #else /* !_WIN32 */
   hpre.av_val = "";
   hpre.av_len = 0;
-  home.av_val = getenv("HOME");
+  char tmp_dir[1024];
+  strcpy(tmp_dir, getenv("HOME"));
+  strcat(tmp_dir, "/tmp");
+  home.av_val = tmp_dir;  
 #define DIRSEP	"/"
 #endif
   if (!home.av_val)
