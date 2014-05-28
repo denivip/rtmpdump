@@ -149,6 +149,8 @@ parsehost:
 
 	if(ques && strstr(p, "slist=")) { /* whatever it is, the '?' and slist= means we need to use everything as app and parse plapath from slist= */
 		appnamelen = ques-p;
+		// dozeo:kostas -> use app name as everything until the question mark
+		applen = appnamelen;
 	}
 	else if(strncmp(p, "ondemand/", 9)==0) {
                 /* app = ondemand/foobar, only pass app=ondemand */
